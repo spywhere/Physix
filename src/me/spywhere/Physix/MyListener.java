@@ -7,7 +7,7 @@ import org.bukkit.event.block.Action;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.event.entity.EntityChangeBlockEvent;
-import org.bukkit.event.player.PlayerDropItemEvent;
+//import org.bukkit.event.player.PlayerDropItemEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 
 public class MyListener implements Listener {
@@ -20,7 +20,7 @@ public class MyListener implements Listener {
 	@EventHandler
 	public void onBlockBreak(BlockBreakEvent event){
 		if(!event.isCancelled()){
-			plugin.checkTree(event.getBlock(),event.getPlayer().getWorld());
+//			plugin.checkTree(event.getBlock(),event.getPlayer().getWorld());
 			plugin.getServer().getScheduler().scheduleSyncDelayedTask(plugin, new EventThread(plugin, event.getBlock(),event.getBlock().getWorld()), 0);
 		}
 	}
@@ -53,12 +53,12 @@ public class MyListener implements Listener {
 	//event.getPlayer().sendMessage("Empty");
 	//}
 
-	@EventHandler
-	public void onPlayerDropItem(PlayerDropItemEvent event){
-		if(!event.isCancelled()){
-			plugin.getServer().getScheduler().scheduleSyncDelayedTask(plugin, new DropEvent(plugin, event.getItemDrop(),event.getItemDrop().getWorld()), plugin.plantdelay);
-		}
-	}
+//	@EventHandler
+//	public void onPlayerDropItem(PlayerDropItemEvent event){
+//		if(!event.isCancelled()){
+//			plugin.getServer().getScheduler().scheduleSyncDelayedTask(plugin, new DropEvent(plugin, event.getItemDrop(),event.getItemDrop().getWorld()), plugin.plantdelay);
+//		}
+//	}
 
 	@EventHandler
 	public void onPlayerInteract(PlayerInteractEvent event){
